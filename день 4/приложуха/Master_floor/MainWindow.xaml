@@ -1,0 +1,47 @@
+<Window x:Class="Master_floor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Master_floor"
+        mc:Ignorable="d"
+        Title="Мастер Пол - Партнеры" Height="550" Width="850">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        
+        <ListView Grid.Row="0" Margin="10" Name="listPartner" MouseDoubleClick="listPartner_MouseDoubleClick">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Gray" BorderThickness="1" Margin="5" Padding="10">
+                        <Grid Width="750">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Тип_партнера}" FontWeight="Bold" Margin="0,0,5,0"/>
+                                    <TextBlock Text=" | "/>
+                                    <TextBlock Text="{Binding Наименование_партнера}" FontWeight="Bold"/>
+                                </StackPanel>
+                                <TextBlock Text="{Binding Директор}" Margin="0,5,0,0"/>
+                                <TextBlock Text="{Binding Телефон_партнера}"/>
+                                <TextBlock Text="{Binding Рейтинг}"/>
+                            </StackPanel>
+                            <TextBlock Grid.Column="1" Text="{Binding Скидка}" FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="btnAddPartner" Content="Добавить партнера" Width="180" Margin="10" Click="btnAddPartner_Click"/>
+            <Button x:Name="btnDeletePartner" Content="Удалить партнера" Width="180" Margin="10" Click="btnDeletePartner_Click"/>
+            <Button x:Name="btnProduct" Content="История реализации" Width="180" Margin="10" Click="btnProduct_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

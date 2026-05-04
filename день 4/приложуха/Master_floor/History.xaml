@@ -1,0 +1,14 @@
+<Window x:Class="Master_floor.History"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="История реализации продукции" Height="400" Width="600" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DataGrid x:Name="dgHistory" AutoGenerateColumns="False" IsReadOnly="True" Margin="10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Продукция" Binding="{Binding ProductName}" Width="*"/>
+                <DataGridTextColumn Header="Количество" Binding="{Binding Count}" Width="100"/>
+                <DataGridTextColumn Header="Дата продажи" Binding="{Binding Date, StringFormat=dd.MM.yyyy}" Width="120"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
